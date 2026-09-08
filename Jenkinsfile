@@ -29,7 +29,7 @@ pipeline {
 
         stage('Health Check') {
             steps {
-                sh 'curl -f http://nginx/health'
+                sh 'for i in 1 2 3 4 5; do curl -f http://nginx/health && exit 0 || sleep 2; done; exit 1'
             }
         }
     }
