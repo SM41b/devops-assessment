@@ -11,7 +11,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'docker run --rm -v "$PWD":/app -w /app python:3.12-slim bash -c "pip install -r requirements.txt && pip install pytest httpx && python -m pytest"'
+                sh 'python -m pytest'
             }
         }
 
