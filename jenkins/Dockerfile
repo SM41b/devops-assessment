@@ -7,3 +7,8 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 RUN pip3 install --break-system-packages fastapi uvicorn pytest httpx
+
+RUN mkdir -p /usr/local/lib/docker/cli-plugins \
+    && curl -SL https://github.com/docker/compose/releases/download/v2.39.4/docker-compose-linux-x86_64 \
+    -o /usr/local/lib/docker/cli-plugins/docker-compose \
+    && chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
